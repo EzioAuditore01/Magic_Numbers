@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Amazing_Numbers_FINAL" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="numbers.Main" />
+    <module name="Amazing_Numbers_FINAL" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
