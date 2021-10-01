@@ -1,6 +1,4 @@
-/*Objectives
 
-Your program should process the user requests. In this stage, your program should:
 
     Welcome users;
     Display the instructions;
