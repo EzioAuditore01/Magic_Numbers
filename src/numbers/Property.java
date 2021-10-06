@@ -111,20 +111,20 @@ public class Property {
     }
 
     // This method filters two numbers by sinlge property
-    public void filterByPropery(long a, long b, String property) {
+    public void filterByProperty(long a, long b, String property) {
 
         for (long i = a; i < (a + b); i++) {
             // if we want to exclude property from our list of numbers.
             if (property.startsWith("-")) {
 
-                if (!isItProperty(i, property.substring(1))) {
+                if (!isProperty(i, property.substring(1))) {
 
                     printProperties(i);
 
                 } else {
                     b++;
                 }
-            } else if (isItProperty(i, property)) {
+            } else if (isProperty(i, property)) {
 
                 printProperties(i);
             } else {
@@ -134,7 +134,7 @@ public class Property {
     }
 
     // Property check by single number
-    public boolean isItProperty(long number, String property) {
+    public boolean isProperty(long number, String property) {
 
 
         if (property.equalsIgnoreCase("buzz")) {
@@ -208,9 +208,9 @@ public class Property {
         for (long i = a; i < (a + b); i++) {
             helper = 0;
             for (String s : list) {
-                if (s.startsWith("-") && (!isItProperty(i, s.substring(1)))) {
+                if (s.startsWith("-") && (!isProperty(i, s.substring(1)))) {
                     helper++;
-                } else if (isItProperty(i, s)) {
+                } else if (isProperty(i, s)) {
 
                     helper++;
                 }

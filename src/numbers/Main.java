@@ -50,7 +50,7 @@ public class Main {
                     System.out.println("Available properties: [EVEN, ODD, BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SQUARE, SUNNY, JUMPING, HAPPY, SAD]");
                 } else {
 
-                    proprty.filterByPropery(firstNumber, secondNumber, parts[2].toLowerCase());
+                    proprty.filterByProperty(firstNumber, secondNumber, parts[2].toLowerCase());
                 }
                 continue;
             }
