@@ -15,29 +15,25 @@ public class Numbers {
     }
 
     // Checking if the number is jumping or not - A number is called as a Jumping Number if all adjacent digits in it differ by 1 1234 or 4321
-    public static boolean isItJumping(long number) {
+    public static boolean isJumping(long number) {
         String numConverted = String.valueOf(number);
 
         for (int i = 0; i < numConverted.length() - 1; i++) {
             if (Math.abs((int) numConverted.charAt(i) - (int) numConverted.charAt(i + 1)) != 1) {
                 return false;
             }
-            if (Math.abs((int) numConverted.charAt(i + 1) - (int) numConverted.charAt(i)) != 1) {
-                return false;
-            }
         }
-
         return true;
 
     }
 
-    // Checks if the number is sunny regarding perfect square method
-    public static boolean isItSunny(long number) {
-        return isItPerfectSquare(number + 1);
+    // if the number next to the given number is a perfect square  80+1=81,square is 9
+    public static boolean isSunny(long number) {
+        return isPerfectSquare(number + 1);
     }
 
     // Check if the number is perfect square
-    public static boolean isItPerfectSquare(long number) {
+    public static boolean isPerfectSquare(long number) {
         int square = ((int) Math.sqrt(number));
         return ((long) square * square == number);
 
@@ -101,7 +97,7 @@ public class Numbers {
         return numConverted.length() >= 3 && number % firstAndLastConv == 0;
     }
 
-    //Check if the number is duck or not - A Duck number is a positive number which has zeroes present in it,035 not but 01203  has a non leading zeo
+    //Check if the number is duck or not - A Duck number is a positive number which has zeroes present in it,035 not but 1203  has a non leading zero
     public static boolean duckOrNot(long number) {
         String exp = String.valueOf(number);
         char first = exp.charAt(0);
@@ -124,7 +120,7 @@ public class Numbers {
     }
 
     // For example, 13 is a happy number, as 1'2 + 3'2 = 10 which leads to 1'2 + 0'2 = 1
-    public static boolean isItHappy(long number) {
+    public static boolean isHappy(long number) {
         String numConverted = String.valueOf(number);
         Set<Integer> set = new HashSet<>();
         int sum = 0;

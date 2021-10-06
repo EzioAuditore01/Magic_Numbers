@@ -69,22 +69,22 @@ public class Property {
         if (numbrs.spyOrNot(i)) {
             spy = ",spy";
         }
-        if (numbrs.isItSunny(i)) {
+        if (numbrs.isSunny(i)) {
             sunny = ",sunny";
         }
-        if (numbrs.isItPerfectSquare(i)) {
+        if (numbrs.isPerfectSquare(i)) {
             square = ",square";
         }
 
-        if (numbrs.isItJumping(i)) {
+        if (numbrs.isJumping(i)) {
             jumping = ",jumping";
         }
 
-        if (numbrs.isItHappy(i)) {
+        if (numbrs.isHappy(i)) {
             happy = ",happy";
         }
 
-        if (!numbrs.isItHappy(i)) {
+        if (!numbrs.isHappy(i)) {
             sad = ",sad";
         }
 
@@ -95,15 +95,17 @@ public class Property {
         System.out.println(newO);
     }
 
-    // Return a list of legal properties
-    public static ArrayList<String> listOfProperties() {
-        ArrayList<String> list = new ArrayList<>();
-        String[] properties = {"buzz", "duck", "palindromic", "gapful", "spy", "even", "odd", "sunny", "square", "jumping", "happy", "sad",
-                "-buzz", "-duck", "-palindromic", "-gapful", "-spy", "-even", "-odd", "-sunny", "-square", "-jumping", "-happy", "-sad"};
+        // Return a list of legal properties
+        public static ArrayList<String> listOfProperties() {
+            ArrayList<String> list = new ArrayList<>();
+            String[] properties = {"buzz", "duck", "palindromic", "gapful", "spy", "even", "odd", "sunny", "square", "jumping", "happy", "sad",
+                    "-buzz", "-duck", "-palindromic", "-gapful", "-spy", "-even", "-odd", "-sunny", "-square", "-jumping", "-happy", "-sad"};
 
-        list.addAll(Arrays.asList(properties));
+            list.addAll(Arrays.asList(properties));
+
 
         return list;
+
 
 
     }
@@ -163,23 +165,23 @@ public class Property {
         }
 
         if (property.equalsIgnoreCase("square")) {
-            return numbrs.isItPerfectSquare(number);
+            return numbrs.isPerfectSquare(number);
         }
 
         if (property.equalsIgnoreCase("sunny")) {
-            return numbrs.isItSunny(number);
+            return numbrs.isSunny(number);
         }
 
         if (property.equalsIgnoreCase("jumping")) {
-            return numbrs.isItJumping(number);
+            return numbrs.isJumping(number);
         }
 
         if (property.equalsIgnoreCase("happy")) {
-            return numbrs.isItHappy(number);
+            return numbrs.isHappy(number);
         }
 
         if (property.equalsIgnoreCase("sad")) {
-            return !numbrs.isItHappy(number);
+            return !numbrs.isHappy(number);
         }
 
         return false;
@@ -235,11 +237,11 @@ public class Property {
         System.out.println("         palindromic: " + numbrs.palindrom(number));
         System.out.println("         gapful: " + numbrs.gapfullOrnot(number));
         System.out.println("         spy: " + numbrs.spyOrNot(number));
-        System.out.println("         square: " + numbrs.isItPerfectSquare(number));
-        System.out.println("         sunny: " + numbrs.isItSunny(number));
-        System.out.println("         jumping: " + numbrs.isItJumping(number));
-        System.out.println("         happy: " + numbrs.isItHappy(number));
-        System.out.println("         sad: " + !numbrs.isItHappy(number));
+        System.out.println("         square: " + numbrs.isPerfectSquare(number));
+        System.out.println("         sunny: " + numbrs.isSunny(number));
+        System.out.println("         jumping: " + numbrs.isJumping(number));
+        System.out.println("         happy: " + numbrs.isHappy(number));
+        System.out.println("         sad: " + !numbrs.isHappy(number));
     }
 
     // Checks if there are duplicate properties entered
