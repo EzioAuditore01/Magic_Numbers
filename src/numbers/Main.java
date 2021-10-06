@@ -7,12 +7,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+//        write your code here
         start();
     }
 
     //Start method of the program
     private static void start() {
-
+        Property proprty = Property.getInstance();
         Welcome.printInstructions();
 
         //Main loop - logic
@@ -33,7 +34,7 @@ public class Main {
                     continue;
                 }
 
-                Property.twoNumbersProp(firstNumber, secondNumber);
+                proprty.twoNumbersProp(firstNumber, secondNumber);
                 continue;
             }
 
@@ -44,12 +45,12 @@ public class Main {
                 String property = parts[2].toLowerCase();
 
 
-                if (!(Property.listOfProperties().contains(property))) {
+                if (!(proprty.listOfProperties().contains(property))) {
                     System.out.println("The property " + "[" + property + "]" + " is wrong.");
                     System.out.println("Available properties: [EVEN, ODD, BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SQUARE, SUNNY, JUMPING, HAPPY, SAD]");
                 } else {
 
-                    Property.filterByPropery(firstNumber, secondNumber, parts[2].toLowerCase());
+                    proprty.filterByPropery(firstNumber, secondNumber, parts[2].toLowerCase());
                 }
                 continue;
             }
@@ -68,8 +69,8 @@ public class Main {
                 // And informs user about available properties
                 // Just like in isItExclusiveModified method this method/logic is used in terms
                 // of prevention of code redundancy and large code.(Example commented lines/code above this comment)
-                if (Property.whichPropertiesAreWrong(propertyList).size() > 1) {
-                    ArrayList<String> listOfWrongs = Property.whichPropertiesAreWrong(propertyList);
+                if (proprty.whichPropertiesAreWrong(propertyList).size() > 1) {
+                    ArrayList<String> listOfWrongs = proprty.whichPropertiesAreWrong(propertyList);
                     System.out.print("The properties " + "[");
                     for (int i = 0; i < listOfWrongs.size(); i++) {
                         if (i == listOfWrongs.size() - 1) {
@@ -82,8 +83,8 @@ public class Main {
                     System.out.println("Available properties: [EVEN, ODD, BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SQUARE, SUNNY, JUMPING, HAPPY, SAD]");
                     continue;
 
-                } else if (Property.whichPropertiesAreWrong(propertyList).size() == 1) {
-                    ArrayList<String> listOfWrongs = Property.whichPropertiesAreWrong(propertyList);
+                } else if (proprty.whichPropertiesAreWrong(propertyList).size() == 1) {
+                    ArrayList<String> listOfWrongs = proprty.whichPropertiesAreWrong(propertyList);
                     System.out.print("The property " + "[");
                     System.out.print(listOfWrongs.get(0).toUpperCase() + "]" + " is wrong.");
                     System.out.println();
@@ -105,7 +106,7 @@ public class Main {
                 }
 
 
-                Property.multipleFilterByProperty(firstNumber, secondNumber, propertyList);
+                proprty.multipleFilterByProperty(firstNumber, secondNumber, propertyList);
                 continue;
             }
 
@@ -117,7 +118,7 @@ public class Main {
                 System.out.println("Goodbye!");
                 break;
             } else {
-                Property.getPropertiesSingeNumber(firstNumber);
+                proprty.getPropertiesSingeNumber(firstNumber);
 
             }
         }

@@ -7,10 +7,20 @@ import java.util.Set;
 
 public class Property {
 
-    String property;
+    private static Property instance = new Property();
+
+    private Property() {
+    }
+
+    public static Property getInstance() {
+        return instance;
+    }
+
+    Numbers numbrs = Numbers.getInstance();
+
 
     // Prints all properties by two numbers entered
-    public static void twoNumbersProp(long a, long b) {
+    public void twoNumbersProp(long a, long b) {
 
         for (long i = a; i < (a + b); i++) {
             printProperties(i);
@@ -19,7 +29,7 @@ public class Property {
     }
 
     // Prints properties
-    public static void printProperties(long i) {
+    public void printProperties(long i) {
         String even = "";
         String odd = "";
         String buzz = "";
@@ -33,48 +43,48 @@ public class Property {
         String happy = "";
         String sad = "";
 
-        if (Numbers.evenOdd(i)) {
+        if (numbrs.evenOdd(i)) {
             even = ",even";
         }
 
-        if (!Numbers.evenOdd(i)) {
+        if (!numbrs.evenOdd(i)) {
             odd = ",odd";
         }
-        if (Numbers.buzzNumber(i)) {
+        if (numbrs.buzzNumber(i)) {
             buzz = ",buzz";
         }
 
-        if (Numbers.duckOrNot(i)) {
+        if (numbrs.duckOrNot(i)) {
             duck = ",duck";
         }
 
-        if (Numbers.palindrom(i)) {
+        if (numbrs.palindrom(i)) {
             palindrom = ",palindrom";
         }
 
-        if (Numbers.gapfullOrnot(i)) {
+        if (numbrs.gapfullOrnot(i)) {
             gap = ",gapful";
         }
 
-        if (Numbers.spyOrNot(i)) {
+        if (numbrs.spyOrNot(i)) {
             spy = ",spy";
         }
-        if (Numbers.isItSunny(i)) {
+        if (numbrs.isItSunny(i)) {
             sunny = ",sunny";
         }
-        if (Numbers.isItPerfectSquare(i)) {
+        if (numbrs.isItPerfectSquare(i)) {
             square = ",square";
         }
 
-        if (Numbers.isItJumping(i)) {
+        if (numbrs.isItJumping(i)) {
             jumping = ",jumping";
         }
 
-        if (Numbers.isItHappy(i)) {
+        if (numbrs.isItHappy(i)) {
             happy = ",happy";
         }
 
-        if (!Numbers.isItHappy(i)) {
+        if (!numbrs.isItHappy(i)) {
             sad = ",sad";
         }
 
@@ -99,7 +109,7 @@ public class Property {
     }
 
     // This method filters two numbers by sinlge property
-    public static void filterByPropery(long a, long b, String property) {
+    public void filterByPropery(long a, long b, String property) {
 
         for (long i = a; i < (a + b); i++) {
             // if we want to exclude property from our list of numbers.
@@ -122,61 +132,61 @@ public class Property {
     }
 
     // Property check by single number
-    public static boolean isItProperty(long number, String property) {
+    public boolean isItProperty(long number, String property) {
 
 
         if (property.equalsIgnoreCase("buzz")) {
-            return Numbers.buzzNumber(number);
+            return numbrs.buzzNumber(number);
         }
         if (property.equalsIgnoreCase("duck")) {
-            return Numbers.duckOrNot(number);
+            return numbrs.duckOrNot(number);
         }
         if (property.equalsIgnoreCase("palindromic")) {
-            return Numbers.palindrom(number);
+            return numbrs.palindrom(number);
         }
 
         if (property.equalsIgnoreCase("gapful")) {
-            return Numbers.gapfullOrnot(number);
+            return numbrs.gapfullOrnot(number);
         }
 
         if (property.equalsIgnoreCase("spy")) {
 
-            return Numbers.spyOrNot(number);
+            return numbrs.spyOrNot(number);
         }
 
         if (property.equalsIgnoreCase("even")) {
-            return Numbers.evenOdd(number);
+            return numbrs.evenOdd(number);
         }
 
         if (property.equalsIgnoreCase("odd")) {
-            return !Numbers.evenOdd(number);
+            return !numbrs.evenOdd(number);
         }
 
         if (property.equalsIgnoreCase("square")) {
-            return Numbers.isItPerfectSquare(number);
+            return numbrs.isItPerfectSquare(number);
         }
 
         if (property.equalsIgnoreCase("sunny")) {
-            return Numbers.isItSunny(number);
+            return numbrs.isItSunny(number);
         }
 
         if (property.equalsIgnoreCase("jumping")) {
-            return Numbers.isItJumping(number);
+            return numbrs.isItJumping(number);
         }
 
         if (property.equalsIgnoreCase("happy")) {
-            return Numbers.isItHappy(number);
+            return numbrs.isItHappy(number);
         }
 
         if (property.equalsIgnoreCase("sad")) {
-            return !Numbers.isItHappy(number);
+            return !numbrs.isItHappy(number);
         }
 
         return false;
     }
 
     // The method tells us which properties are wrong
-    public static ArrayList<String> whichPropertiesAreWrong(ArrayList<String> list) {
+    public ArrayList<String> whichPropertiesAreWrong(ArrayList<String> list) {
         ArrayList<String> listOfWrongProp = new ArrayList<>();
 
         for (String s : list) {
@@ -190,7 +200,7 @@ public class Property {
     }
 
     // Prints multiple numbers and their related properties according to user parameters
-    public static void multipleFilterByProperty(long a, long b, ArrayList<String> list) {
+    public void multipleFilterByProperty(long a, long b, ArrayList<String> list) {
 
         int helper;
         for (long i = a; i < (a + b); i++) {
@@ -215,25 +225,25 @@ public class Property {
     }
 
     //Prints properties by input number
-    public static void getPropertiesSingeNumber(long number) {
+    public void getPropertiesSingeNumber(long number) {
 
         System.out.println("Properties of " + number);
-        System.out.println("         even: " + Numbers.evenOdd(number));
-        System.out.println("         odd: " + !Numbers.evenOdd(number));
-        System.out.println("         buzz: " + Numbers.buzzNumber(number));
-        System.out.println("         duck: " + Numbers.duckOrNot(number));
-        System.out.println("         palindromic: " + Numbers.palindrom(number));
-        System.out.println("         gapful: " + Numbers.gapfullOrnot(number));
-        System.out.println("         spy: " + Numbers.spyOrNot(number));
-        System.out.println("         square: " + Numbers.isItPerfectSquare(number));
-        System.out.println("         sunny: " + Numbers.isItSunny(number));
-        System.out.println("         jumping: " + Numbers.isItJumping(number));
-        System.out.println("         happy: " + Numbers.isItHappy(number));
-        System.out.println("         sad: " + !Numbers.isItHappy(number));
+        System.out.println("         even: " + numbrs.evenOdd(number));
+        System.out.println("         odd: " + !numbrs.evenOdd(number));
+        System.out.println("         buzz: " + numbrs.buzzNumber(number));
+        System.out.println("         duck: " + numbrs.duckOrNot(number));
+        System.out.println("         palindromic: " + numbrs.palindrom(number));
+        System.out.println("         gapful: " + numbrs.gapfullOrnot(number));
+        System.out.println("         spy: " + numbrs.spyOrNot(number));
+        System.out.println("         square: " + numbrs.isItPerfectSquare(number));
+        System.out.println("         sunny: " + numbrs.isItSunny(number));
+        System.out.println("         jumping: " + numbrs.isItJumping(number));
+        System.out.println("         happy: " + numbrs.isItHappy(number));
+        System.out.println("         sad: " + !numbrs.isItHappy(number));
     }
 
     // Checks if there are duplicate properties entered
-    public static <T> boolean hasDuplicate(ArrayList<String> allProperties) {
+    public <T> boolean hasDuplicate(ArrayList<String> allProperties) {
         Set<String> set = new HashSet<>();
         // Set#add returns false if the set does not change, which
         // indicates that a duplicate element has been added.

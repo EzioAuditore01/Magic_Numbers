@@ -5,6 +5,15 @@ import java.util.Set;
 
 public class Numbers {
 
+    private static Numbers instance = new Numbers();
+
+    private Numbers() {
+    }
+
+    public static Numbers getInstance() {
+        return instance;
+    }
+
     // Checking if the number is jumping or not - A number is called as a Jumping Number if all adjacent digits in it differ by 1 1234 or 4321
     public static boolean isItJumping(long number) {
         String numConverted = String.valueOf(number);
