@@ -3,8 +3,9 @@ package numbers;
 import java.util.ArrayList;
 
 public class ErrorHandler {
-
-    public static ArrayList<String> isItExclusiveModified(ArrayList<String> list) {
+    // The method takes a list as argument and checks if there are mutually exclusive properties
+    // and adds them to list
+    public static ArrayList<String> isExclusiveModified(ArrayList<String> list) {
         ArrayList<String> listOfExclusives = new ArrayList<>();
 
         if (list.contains("even") && list.contains("odd")) {

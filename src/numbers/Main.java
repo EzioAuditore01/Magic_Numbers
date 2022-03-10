@@ -67,8 +67,7 @@ public class Main {
 
                 // Here i am checking if the user has passed 1 or multiple WRONG properties and prints them on screen
                 // And informs user about available properties
-                // Just like in isItExclusiveModified method this method/logic is used in terms
-                // of prevention of code redundancy and large code.(Example commented lines/code above this comment)
+
                 if (proprty.whichPropertiesAreWrong(propertyList).size() > 1) {
                     ArrayList<String> listOfWrongs = proprty.whichPropertiesAreWrong(propertyList);
                     System.out.print("The properties " + "[");
@@ -92,10 +91,10 @@ public class Main {
                     continue;
                 }
                 // Checking if there are mutually exclusive props.- parts[] are used to include "-" or not
-                if (!(ErrorHandler.isItExclusiveModified(propertyList).isEmpty())) {
+                if (!(ErrorHandler.isExclusiveModified(propertyList).isEmpty())) {
 
                     StringBuilder sb = new StringBuilder();
-                    for (String prop : ErrorHandler.isItExclusiveModified(propertyList)) {
+                    for (String prop : ErrorHandler.isExclusiveModified(propertyList)) {
 
                         sb.append(prop.toUpperCase() + " ");
                         sb.deleteCharAt(sb.length() - 1);
