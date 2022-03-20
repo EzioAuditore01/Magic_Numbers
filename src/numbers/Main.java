@@ -7,21 +7,19 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-//        write your code here
         start();
     }
 
     //Start method of the program
     private static void start() {
+
         Property proprty = Property.getInstance();
         Welcome.printInstructions();
 
         //Main loop - logic
         while (true) {
             System.out.println("Enter a request: >");
-
             Scanner scan = new Scanner(System.in);
-
             String number = scan.nextLine();
             String[] parts = number.split(" ");
             long firstNumber = Long.parseLong(parts[0]);
@@ -44,30 +42,24 @@ public class Main {
                 long secondNumber = Long.parseLong(parts[1]);
                 String property = parts[2].toLowerCase();
 
-
                 if (!(proprty.listOfProperties().contains(property))) {
                     System.out.println("The property " + "[" + property + "]" + " is wrong.");
                     System.out.println("Available properties: [EVEN, ODD, BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SQUARE, SUNNY, JUMPING, HAPPY, SAD]");
                 } else {
-
                     proprty.filterByProperty(firstNumber, secondNumber, parts[2].toLowerCase());
                 }
                 continue;
             }
 
             if (parts.length > 3) {
-
                 ArrayList<String> propertyList = new ArrayList<>();
                 int secondNumber = Integer.parseInt(parts[1]);
                 for (int i = 2; i < parts.length; i++) {
                     propertyList.add(parts[i]);
-
                 }
-
 
                 // Here i am checking if the user has passed 1 or multiple WRONG properties and prints them on screen
                 // And informs user about available properties
-
                 if (proprty.whichPropertiesAreWrong(propertyList).size() > 1) {
                     ArrayList<String> listOfWrongs = proprty.whichPropertiesAreWrong(propertyList);
                     System.out.print("The properties " + "[");
@@ -118,7 +110,6 @@ public class Main {
                 break;
             } else {
                 proprty.getPropertiesSingeNumber(firstNumber);
-
             }
         }
 

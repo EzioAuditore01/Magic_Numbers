@@ -37,11 +37,12 @@ public class Numbers {
         int square = ((int) Math.sqrt(number));
         return ((long) square * square == number);
 
-
     }
 
-    //Check if the number is spy or not (sum of digits = sum of product of digits)
-    public static boolean spyOrNot(long number) {
+    //Check if the number is spy or not (sum of digits =  product of digits)
+    //Sum=1+1+2+4=8
+    //Product=1*1*2*4=8
+    public static boolean isSpy(long number) {
         int sumOfDigits = 0;
         int prodOfDigits = 1;
 
@@ -56,7 +57,7 @@ public class Numbers {
     }
 
     //Check if the number is buzz or not - Buzz number is another special number in Java that ends with digit 7 or divisible by 7
-    public static boolean buzzNumber(long number) {
+    public static boolean isBuzz(long number) {
         String exp = String.valueOf(number);
         char last = exp.charAt(exp.length() - 1);
         return number % 7 == 0 || last == '7';
@@ -70,8 +71,7 @@ public class Numbers {
 
 
     //Check if the number is palindrom or not - A palindromic number is a number that remains the same when its digits are reversed
-    public static boolean palindrom(long number) {
-
+    public static boolean isPalindrom(long number) {
         String numConverted = String.valueOf(number);
         int tracker = numConverted.length() - 1; // Used for reverse indexing
 
@@ -87,7 +87,7 @@ public class Numbers {
     }
 
     //Check if the number is gapful or not - Gapful Number is a number N of at least 3 digits such that it is divisible by the concatenation of it’s first and last digit.
-    public static boolean gapfullOrnot(long number) {
+    public static boolean isGapful(long number) {
 
         String numConverted = String.valueOf(number);
         String firstAndLast = numConverted.charAt(0) + "" + numConverted.charAt(numConverted.length() - 1);
@@ -98,7 +98,7 @@ public class Numbers {
     }
 
     //Check if the number is duck or not - A Duck number is a positive number which has zeroes present in it,035 not but 1203  has a non leading zero
-    public static boolean duckOrNot(long number) {
+    public static boolean isDuck(long number) {
         String exp = String.valueOf(number);
         char first = exp.charAt(0);
 
